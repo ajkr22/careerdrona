@@ -9,29 +9,30 @@ const Nav = () => {
     window.open(`${process.env.REACT_APP_API_URL}/api/auth/logout`, "_self");
   };
   const user = useContext(UserContext);
-  const getTotalNotif = async (user) => {
-    try {
-      const url = `${process.env.REACT_APP_API_URL}/api/posts/totalnotifications`;
-      await axios
-        .post(url, { user: user }, { withCredentials: true })
-        .then((res) => {
-          if (res.data.error) {
-            console.log(res.data.message);
-          } else {
-            setNotifications(res.data);
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
-  useEffect(() => {
-    getTotalNotif(user);
-  }, [user]);
+  // const getTotalNotif = async (user) => {
+  //   try {
+  //     const url = `${process.env.REACT_APP_API_URL}/api/posts/totalnotifications`;
+  //     await axios
+  //       .post(url, { user: user }, { withCredentials: true })
+  //       .then((res) => {
+  //         if (res.data.error) {
+  //           console.log(res.data.message);
+  //         } else {
+  //           setNotifications(res.data);
+  //         }
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   getTotalNotif(user);
+  // }, [user]);
 
   return (
     <div className="container-fluid border-bottom bg-white fixed-top">
@@ -69,7 +70,7 @@ const Nav = () => {
                 <Link to="/guidanceform" className="btn btn-primary fw-bold">
                   Personalized Guidance For Free
                 </Link>
-                <Link
+                {/* <Link
                   to="/notification"
                   className="btn btn-outline-primary border-white position-relative"
                 >
@@ -87,7 +88,7 @@ const Nav = () => {
                   ) : (
                     ""
                   )}
-                </Link>
+                </Link> */}
                 <div className="dropdown">
                   <button
                     className="border-0 bg-transparent p-0"

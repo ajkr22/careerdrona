@@ -27,8 +27,9 @@ function App() {
       const url = `${process.env.REACT_APP_API_URL}/api/auth/login/success`;
       const response = await axios.get(url, { withCredentials: true });
       setUser(response.data.user);
+      console.log(response);
     } catch (error) {
-      console.log(error.response.data);
+      console.log(error);
     }
   };
   useEffect(() => {
@@ -105,7 +106,7 @@ function App() {
                 }
               />
             )}
-             {user && (
+            {user && (
               <Route
                 path="/guidanceform"
                 element={
